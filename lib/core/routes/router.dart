@@ -8,10 +8,11 @@ import 'package:landing_page/pages/services_page.dart';
 
 class WaveRouter {
   static GoRouter goRouter = GoRouter(
-    initialLocation: '/',
+    initialLocation:
+        'https://victor78970513.github.io/landing_page_wave_solutions//',
     routes: <RouteBase>[
       GoRoute(
-        path: '/',
+        path: 'https://victor78970513.github.io/landing_page_wave_solutions//',
         builder: (BuildContext context, GoRouterState state) {
           return const HomePage();
         },
