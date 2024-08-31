@@ -115,6 +115,7 @@ class HomePage extends StatelessWidget {
                           child: SizedBox(
                             width: size.width * 0.35,
                             height: size.height * 0.4,
+                            //! CHECK TO SAVE IN STORAGE
                             child: const RiveAnimation.asset(
                               "assets/rive/flutterdash.riv",
                               fit: BoxFit.fill,
@@ -133,7 +134,6 @@ class HomePage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   AutoSizeText(
-                                    // "Suscríbete a nuestro boletín y recibe muy buenos comentarios de nuestros expertos de Desarrolladores directamente en tu bandeja de entrada.",
                                     "Wave technologies trabaja con marcas globales para diseñar, crear y escalar aplicaciones exitosas, y somos el número uno en desarrollo multiplataforma.",
                                     style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w700,

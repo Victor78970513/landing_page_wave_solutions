@@ -6,16 +6,14 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          Column(
-            children: [
-              SvgPicture.asset("assets/logos/second_logo.svg"),
-            ],
-          )
-        ],
-      ),
+    return Row(
+      children: [
+        Column(
+          children: [
+            SvgPicture.asset("assets/logos/second_logo.svg"),
+          ],
+        )
+      ],
     );
   }
 }

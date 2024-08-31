@@ -37,7 +37,7 @@ class WaveRouter {
       GoRoute(
         path: '/Products',
         builder: (context, state) {
-          return ProductsPage();
+          return const ProductsPage();
         },
       )
     ],
