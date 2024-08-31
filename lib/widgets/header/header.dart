@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/core/routes/router.dart';
 import 'package:landing_page/pages/about_us_page.dart';
 import 'package:landing_page/pages/contact_page.dart';
+import 'package:landing_page/pages/home_page.dart';
 import 'package:landing_page/pages/products_page.dart';
 import 'package:landing_page/pages/services_page.dart';
-import 'package:landing_page/providers/navigator_provider.dart';
+// import 'package:landing_page/providers/navigator_provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class Header extends ConsumerWidget {
@@ -15,7 +17,7 @@ class Header extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final navigator = ref.watch(navigatorProvider.notifier);
+    // final navigator = ref.watch(navigatorProvider.notifier);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -33,8 +35,8 @@ class Header extends ConsumerWidget {
                         ResponsiveBreakpoints.of(context).isTablet
                     ? GestureDetector(
                         onTap: () {
-                          // WaveRouter.goRouter.go(HomePage.name);
-                          navigator.changePage(0);
+                          WaveRouter.goRouter.go(HomePage.name);
+                          // navigator.changePage(0);
                         },
                         child: SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.13,
@@ -44,8 +46,8 @@ class Header extends ConsumerWidget {
                       )
                     : GestureDetector(
                         onTap: () {
-                          // WaveRouter.goRouter.go(HomePage.name);
-                          navigator.changePage(0);
+                          WaveRouter.goRouter.go(HomePage.name);
+                          // navigator.changePage(0);
                         },
                         child: SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.13,
@@ -123,7 +125,7 @@ class _HeaderItemState extends ConsumerState<_HeaderItem> {
   bool isHovered = false;
   @override
   Widget build(BuildContext context) {
-    final navigator = ref.watch(navigatorProvider.notifier);
+    // final navigator = ref.watch(navigatorProvider.notifier);
     return MouseRegion(
       onEnter: (_) {
         setState(() {
@@ -139,9 +141,9 @@ class _HeaderItemState extends ConsumerState<_HeaderItem> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextButton(
           onPressed: () {
-            // WaveRouter.goRouter.go(widget.path);
+            WaveRouter.goRouter.go(widget.path);
             // Navigator.of(context).pushNamed(widget.path);
-            navigator.changePage(widget.index);
+            // navigator.changePage(widget.index);
           },
           child: AutoSizeText(
             widget.title,
@@ -169,12 +171,12 @@ class _SpecialHeaderItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final navigator = ref.watch(navigatorProvider.notifier);
+    // final navigator = ref.watch(navigatorProvider.notifier);
     return GestureDetector(
       onTap: () {
-        // WaveRouter.goRouter.go(path);
+        WaveRouter.goRouter.go(path);
         // Navigator.of(context).pushReplacementNamed(path);
-        navigator.changePage(index);
+        // navigator.changePage(index);
       },
       child: Container(
         margin: const EdgeInsets.only(right: 30),

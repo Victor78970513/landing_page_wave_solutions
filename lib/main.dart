@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:landing_page/core/routes/router.dart';
 import 'package:landing_page/core/theme/app_theme.dart';
-import 'package:landing_page/pages/home_page.dart';
+// import 'package:landing_page/pages/home_page.dart';
 import 'package:landing_page/pages/main_layout_page.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -14,14 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp.router(
-    return MaterialApp(
+    return MaterialApp.router(
+      // return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
       //?GOROUTER
-      // routerConfig: WaveRouter.goRouter,
+      routerConfig: WaveRouter.goRouter,
       //?GOROUTER
-      home: const HomePage(),
+      // home: const HomePage(),
       theme: AppTheme.getAppTheme,
       builder: (context, child) => ResponsiveBreakpoints(
         breakpoints: const [

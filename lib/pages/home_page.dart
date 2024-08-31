@@ -9,9 +9,34 @@ import 'package:landing_page/widgets/home_widgets/newsteler.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:rive/rive.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   static const name = '/';
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late RiveAnimationController _controller;
+  // ignore: unused_field
+  bool _isPlaying = false;
+  @override
+  void initState() {
+    _controller = OneShotAnimation(
+      'Animation 1',
+      autoplay: true,
+      onStart: () => setState(() => _isPlaying = true),
+      onStop: () => setState(() => _isPlaying = false),
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,8 +140,9 @@ class HomePage extends StatelessWidget {
                           child: SizedBox(
                             width: size.width * 0.35,
                             height: size.height * 0.4,
-                            //! CHECK TO SAVE IN STORAGE
-                            child: const RiveAnimation.asset(
+                            child: RiveAnimation.asset(
+                              // controllers: [_controller],
+                              // onInit: (_) => setState(() {}),
                               "assets/rive/flutterdash.riv",
                               fit: BoxFit.fill,
                             ),
