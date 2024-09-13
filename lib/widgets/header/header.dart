@@ -9,7 +9,6 @@ import 'package:landing_page/pages/contact_page.dart';
 import 'package:landing_page/pages/home_page.dart';
 import 'package:landing_page/pages/products_page.dart';
 import 'package:landing_page/pages/services_page.dart';
-// import 'package:landing_page/providers/navigator_provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class Header extends ConsumerWidget {
@@ -17,7 +16,8 @@ class Header extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    // final navigator = ref.watch(navigatorProvider.notifier);
+    const loader = SvgAssetLoader("assets/logos/logo_wave.svg");
+    svg.cache.putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -36,9 +36,9 @@ class Header extends ConsumerWidget {
                     ? GestureDetector(
                         onTap: () {
                           WaveRouter.goRouter.go(HomePage.name);
-                          // navigator.changePage(0);
                         },
-                        child: SizedBox(
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
                           height: MediaQuery.sizeOf(context).height * 0.13,
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           child: SvgPicture.asset("assets/logos/logo_wave.svg"),
@@ -47,9 +47,9 @@ class Header extends ConsumerWidget {
                     : GestureDetector(
                         onTap: () {
                           WaveRouter.goRouter.go(HomePage.name);
-                          // navigator.changePage(0);
                         },
-                        child: SizedBox(
+                        child: Container(
+                          padding: const EdgeInsets.all(5),
                           height: MediaQuery.sizeOf(context).height * 0.13,
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           child:
@@ -125,7 +125,6 @@ class _HeaderItemState extends ConsumerState<_HeaderItem> {
   bool isHovered = false;
   @override
   Widget build(BuildContext context) {
-    // final navigator = ref.watch(navigatorProvider.notifier);
     return MouseRegion(
       onEnter: (_) {
         setState(() {
@@ -142,8 +141,6 @@ class _HeaderItemState extends ConsumerState<_HeaderItem> {
         child: TextButton(
           onPressed: () {
             WaveRouter.goRouter.go(widget.path);
-            // Navigator.of(context).pushNamed(widget.path);
-            // navigator.changePage(widget.index);
           },
           child: AutoSizeText(
             widget.title,
@@ -171,12 +168,9 @@ class _SpecialHeaderItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    // final navigator = ref.watch(navigatorProvider.notifier);
     return GestureDetector(
       onTap: () {
         WaveRouter.goRouter.go(path);
-        // Navigator.of(context).pushReplacementNamed(path);
-        // navigator.changePage(index);
       },
       child: Container(
         margin: const EdgeInsets.only(right: 30),

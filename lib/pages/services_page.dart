@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:landing_page/pages/servicess/services_mobile_view.dart';
+import 'package:landing_page/pages/servicess/services_web_view.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class ServicesPage extends StatelessWidget {
   static const name = '/Services';
@@ -6,15 +9,9 @@ class ServicesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.green,
-          child: const Text('Services Page'),
-        ),
-      ),
-    );
+    return ResponsiveBreakpoints.of(context).isMobile ||
+            ResponsiveBreakpoints.of(context).isTablet
+        ? const ServicesMobileView()
+        : const ServicesWebView();
   }
 }

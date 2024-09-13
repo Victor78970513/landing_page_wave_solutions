@@ -18,24 +18,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late RiveAnimationController _controller;
-  // ignore: unused_field
-  bool _isPlaying = false;
   @override
-  void initState() {
-    _controller = OneShotAnimation(
-      'Animation 1',
-      autoplay: true,
-      onStart: () => setState(() => _isPlaying = true),
-      onStop: () => setState(() => _isPlaying = false),
-    );
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+  void didChangeDependencies() {
+    const loader = SvgAssetLoader("assets/logos/formas_image.svg");
+    svg.cache.putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+    super.didChangeDependencies();
   }
 
   @override
@@ -49,6 +36,7 @@ class _HomePageState extends State<HomePage> {
               width: double.infinity,
               child: Column(
                 children: [
+                  SizedBox(height: size.height * 0.15),
                   Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: size.width * 0.13),
@@ -140,12 +128,20 @@ class _HomePageState extends State<HomePage> {
                           child: SizedBox(
                             width: size.width * 0.35,
                             height: size.height * 0.4,
-                            child: RiveAnimation.asset(
-                              // controllers: [_controller],
-                              // onInit: (_) => setState(() {}),
-                              "assets/rive/flutterdash.riv",
-                              fit: BoxFit.fill,
-                            ),
+                            child: FutureBuilder(
+                                future: Future.delayed(
+                                    const Duration(milliseconds: 500)),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return Container(); // Muestra un cargador mientras esperas.
+                                  } else {
+                                    return const RiveAnimation.asset(
+                                      "assets/rive/flutterdash.riv",
+                                      fit: BoxFit.fill,
+                                    );
+                                  }
+                                }),
                           ),
                         ),
                         Column(

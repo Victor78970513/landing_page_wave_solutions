@@ -7,6 +7,11 @@ class ClientsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    for (var svgAsset in clients) {
+      final loader = SvgAssetLoader(svgAsset);
+      svg.cache
+          .putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+    }
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 50),
       child: Align(

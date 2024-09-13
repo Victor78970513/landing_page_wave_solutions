@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:landing_page/core/routes/router.dart';
 import 'package:landing_page/core/theme/app_theme.dart';
-// import 'package:landing_page/pages/home_page.dart';
 import 'package:landing_page/pages/main_layout_page.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-void main() => runApp(
-      const ProviderScope(child: MyApp()),
-    );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    const ProviderScope(child: MyApp()),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,7 +24,6 @@ class MyApp extends StatelessWidget {
       //?GOROUTER
       routerConfig: WaveRouter.goRouter,
       //?GOROUTER
-      // home: const HomePage(),
       theme: AppTheme.getAppTheme,
       builder: (context, child) => ResponsiveBreakpoints(
         breakpoints: const [
