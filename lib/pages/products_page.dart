@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:landing_page/pages/products/products_mobile_view.dart';
+import 'package:landing_page/pages/products/products_web_view.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class ProductsPage extends StatelessWidget {
   static const name = '/Products';
@@ -6,15 +9,9 @@ class ProductsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.green,
-          child: const Text('products_page'),
-        ),
-      ),
-    );
+    return ResponsiveBreakpoints.of(context).isMobile ||
+            ResponsiveBreakpoints.of(context).isTablet
+        ? const ProductsMobileView()
+        : const ProductsWebView();
   }
 }

@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                     padding:
                         EdgeInsets.symmetric(horizontal: size.width * 0.13),
                     child: AutoSizeText(
-                      "Wave technologies, equipo, y resultados.",
+                      "Wave Technologies, equipo, y resultados.",
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,

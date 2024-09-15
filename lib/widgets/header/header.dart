@@ -38,7 +38,7 @@ class Header extends ConsumerWidget {
                           WaveRouter.goRouter.go(HomePage.name);
                         },
                         child: Container(
-                          padding: const EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(20),
                           height: MediaQuery.sizeOf(context).height * 0.13,
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           child: SvgPicture.asset("assets/logos/logo_wave.svg"),
@@ -49,7 +49,7 @@ class Header extends ConsumerWidget {
                           WaveRouter.goRouter.go(HomePage.name);
                         },
                         child: Container(
-                          padding: const EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(20),
                           height: MediaQuery.sizeOf(context).height * 0.13,
                           width: MediaQuery.sizeOf(context).width * 0.3,
                           child:
@@ -85,13 +85,13 @@ class Header extends ConsumerWidget {
                         index: 1,
                       ),
                       _HeaderItem(
-                        title: "SOBRE NOSOTROS",
-                        path: AboutUsPage.name,
+                        title: "PRODUCTOS",
+                        path: ProductsPage.name,
                         index: 2,
                       ),
                       _HeaderItem(
-                        title: "PRODUCTOS",
-                        path: ProductsPage.name,
+                        title: "SOBRE NOSOTROS",
+                        path: AboutUsPage.name,
                         index: 3,
                       ),
                       _SpecialHeaderItem(

@@ -18,12 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      // return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      //?GOROUTER
       routerConfig: WaveRouter.goRouter,
-      //?GOROUTER
       theme: AppTheme.getAppTheme,
       builder: (context, child) => ResponsiveBreakpoints(
         breakpoints: const [

@@ -1,8 +1,9 @@
 // import 'dart:ui_web' as ui;
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:landing_page/core/servicess/services_json.dart';
+import 'package:landing_page/core/constants/services.dart';
 import 'package:landing_page/widgets/common/footer.dart';
 import 'package:landing_page/widgets/servicess/section_services.dart';
 // import 'dart:html';
@@ -12,6 +13,11 @@ class ServicesWebView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    for (var svgAsset in appServicesSvgs) {
+      final loader = SvgAssetLoader(svgAsset);
+      svg.cache
+          .putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+    }
     final size = MediaQuery.sizeOf(context);
     // const Widget iframeWidget = HtmlElementView(
     //   viewType: 'iframeElement',
@@ -128,7 +134,6 @@ class ServicesWebView extends StatelessWidget {
                     //     ),
                     //   ),
                     // ),
-                    const SizedBox(height: 40),
                     Text(
                       "Somos líderes mundiales en Flutter y expertos en desarrollo de aplicaciones. Nuestro equipo tiene todo lo necesario para diseñar, crear, implementar y tener éxito con aplicaciones para cualquier pantalla. Como la consultora de desarrollo de Flutter con más experiencia, siempre superamos a la competencia.",
                       style: GoogleFonts.poppins(
@@ -136,42 +141,43 @@ class ServicesWebView extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    const SizedBox(height: 100),
+                    const SectionServiceTitle(
+                      svgPath: "assets/icons/flutter_service.svg",
+                      title: "Servicios de desarrollo de aplicaciones",
+                      backgroundColor: Color.fromRGBO(31, 44, 215, 1),
+                    ),
                     SectionServices(
                       services: appServicesJson,
                       svgPath: "assets/icons/flutter_service.svg",
+                      lottie: "assets/icons/flutterfire.json",
                       subtitle:
                           "Flutter es la solución para el desarrollo de aplicaciones modernas.",
                       backgorundColor: const Color.fromRGBO(31, 44, 215, 1),
                       checkColor1: const Color.fromRGBO(229, 235, 254, 1),
                       checkColor2: const Color.fromRGBO(31, 44, 215, 1),
                     ),
-                    const SizedBox(height: 80),
-                    Text(
-                      "Diseño y estrategia de producto",
-                      style: GoogleFonts.poppins(
-                          fontSize: 50, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 80),
+                    const SectionServiceTitle(
+                        svgPath: "assets/icons/design_service.svg",
+                        title: "Diseño y estrategia de producto",
+                        backgroundColor: Color.fromRGBO(252, 49, 139, 1)),
                     SectionServices(
-                      services: appServicesJson,
+                      services: designServicesJson,
                       svgPath: "assets/icons/design_service.svg",
+                      lottie: "assets/icons/design_lottie.json",
                       subtitle:
                           "Diseñar soluciones con gestión estratégica de productos.",
                       backgorundColor: const Color.fromRGBO(252, 49, 139, 1),
                       checkColor1: const Color.fromRGBO(255, 232, 243, 1),
                       checkColor2: const Color.fromRGBO(252, 49, 139, 1),
                     ),
-                    const SizedBox(height: 80),
-                    Text(
-                      "Rendimiento y crecimiento",
-                      style: GoogleFonts.poppins(
-                          fontSize: 50, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 80),
+                    const SectionServiceTitle(
+                        svgPath: "assets/icons/performance_service.svg",
+                        title: "Rendimiento y crecimiento",
+                        backgroundColor: Color.fromRGBO(253, 180, 8, 1)),
                     SectionServices(
-                      services: appServicesJson,
+                      services: performanceServicesJson,
                       svgPath: "assets/icons/performance_service.svg",
+                      lottie: "assets/icons/growth_lottie.json",
                       subtitle:
                           "Análisis, rendimiento de aplicaciones, crecimiento y gestión de tiendas de aplicaciones.",
                       backgorundColor: const Color.fromRGBO(253, 180, 8, 1),

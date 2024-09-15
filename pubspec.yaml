@@ -43,6 +43,11 @@ dependencies:
   go_router: ^14.2.7
   auto_size_text: ^3.0.0
   flutter_riverpod: ^2.5.1
+  lottie: ^3.1.2
+  flutter_staggered_grid_view: ^0.7.0
+  animate_do: ^3.3.4
+  loading_animation_widget: ^1.2.1
+  uuid: ^4.5.0
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +80,7 @@ flutter:
     - assets/rive/
     - assets/clients/
     - assets/social_network/
+    - assets/products/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

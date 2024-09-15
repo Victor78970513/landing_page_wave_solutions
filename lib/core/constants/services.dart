@@ -1,28 +1,104 @@
-final List<Map<String, String>> services = [
+final List<Map<String, dynamic>> appServicesJson = [
   {
-    'icon': 'assets/icons/web_service.jpg',
-    'title': 'Desarrollo Web',
-    'description':
-        'Creación de sitios web atractivos y funcionales, optimizados para todos los dispositivos.'
+    "title": "Desarrollo de Aplicaciones Móviles",
+    "items": [
+      "Aplicaciones multiplataforma Flutter",
+      "Desarrollo de aplicaciones para iOS / iPhone",
+      "Desarrollo de aplicaciones para Android",
+      "Desarrollo de aplicaciones para teléfonos y tabletas"
+    ]
   },
   {
-    'icon': 'assets/icons/mobile_service.jpg',
-    'title': 'Aplicaciones Móviles',
-    'description':
-        'Desarrollo de aplicaciones móviles para iOS y Android con la mejor experiencia de usuario.'
+    "title": "Desarrollo de Aplicaciones de Escritorio",
+    "items": [
+      "Integración de escritorio Flutter",
+      "Desarrollo de aplicaciones para macOS",
+      "Desarrollo de aplicaciones para Windows",
+      "Desarrollo de aplicaciones para ChromeOS"
+    ]
   },
   {
-    'icon': 'assets/icons/consultoria_service.jpg',
-    'title': 'Consultoría Tecnológica',
-    'description':
-        'Asesoramiento en la implementación de soluciones tecnológicas innovadoras para tu negocio.'
+    "title": "Desarrollo de Aplicaciones Web",
+    "items": [
+      "Compatible con Chrome",
+      "Compatible con Safari",
+      "Compatible con Edge",
+      "Compatible con Firefox"
+    ]
   },
   {
-    'icon': 'assets/icons/support_service.webp',
-    'title': 'Mantenimiento y Soporte',
-    'description':
-        'Servicios de mantenimiento continuo y soporte técnico para garantizar el funcionamiento óptimo de tus sistemas.'
+    "title": "Desarrollo de Cloud Back-End",
+    "items": [
+      "Desarrollo de Firebase",
+      "Google Cloud Platform / AWS",
+      "Funciones sin servidor / Cloud"
+    ]
+  }
+];
+
+final List<Map<String, dynamic>> designServicesJson = [
+  {
+    "title": "Diseño de Aplicaciones",
+    "items": [
+      "Diseño de experiencia de usuario (UX)",
+      "Diseño visual",
+      "Diseño de marca",
+      "Animación y diseño de movimiento"
+    ]
   },
+  {
+    "title": "Investigación y Prototipado",
+    "items": [
+      "Investigación de usuario",
+      "Investigación de mercado",
+      "Prototipado",
+      "Prueba de usuario"
+    ]
+  },
+  {
+    "title": "Gestión de Producto",
+    "items": [
+      "Estrategia de producto",
+      "Estrategia de negocio",
+      "Priorización de características y planificación de ruta",
+      "Gestión de proyectos"
+    ]
+  },
+];
+final List<Map<String, dynamic>> performanceServicesJson = [
+  {
+    "title": "Análisis y Rendimiento de Aplicaciones",
+    "items": [
+      "Estrategia y reportes de análisis",
+      "Informes y paneles de control",
+      "Monitoreo del rendimiento de la aplicación",
+      "Monitoreo de informes de fallas"
+    ]
+  },
+  {
+    "title": "Automatización de Marketing",
+    "items": [
+      "Audiencias de usuarios y segmentación",
+      "Notificaciones y correos electrónicos",
+      "Mensajes dirigidos dentro de la aplicación",
+      "Insights de usuario"
+    ]
+  },
+  {
+    "title": "Gestión de App Store",
+    "items": [
+      "Configuración de la App Store",
+      "Optimización de la App Store",
+      "Monitoreo de comentarios de los usuarios",
+      "Gestión de listados en la App Store"
+    ]
+  },
+];
+
+final appServicesSvgs = [
+  "assets/icons/flutter_service.svg",
+  "assets/icons/design_service.svg",
+  "assets/icons/performance_service.svg"
 ];
 
 final List<String> techs = [
