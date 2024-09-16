@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,22 +8,9 @@ import 'package:landing_page/widgets/home_widgets/newsteler.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:rive/rive.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   static const name = '/';
   const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void didChangeDependencies() {
-    const loader = SvgAssetLoader("assets/logos/formas_image.svg");
-    svg.cache.putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
-    super.didChangeDependencies();
-  }
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -40,16 +26,13 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: size.width * 0.13),
-                    child: AutoSizeText(
+                    child: Text(
                       "Wave Technologies, equipo, y resultados.",
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
-                        fontSize: 100,
+                        fontSize: size.width > 1200 ? 100 : 40,
                       ),
-                      minFontSize: 30,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Row(
@@ -64,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                                 left: size.width * 0.13,
                                 top: size.height * 0.08,
                               ),
-                              child: AutoSizeText(
+                              child: Text(
                                 "Diseñamos y construimos experiencias digitales de primer nivel para cualquier pantalla, con las mejores herramientas y enfoques de ingeniería para lograr resultados consistentes y escalables. Descubra cómo VGV lo ayuda a lograrlo.",
                                 style: GoogleFonts.poppins(
                                   color: Colors.white,
@@ -134,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                                 builder: (context, snapshot) {
                                   if (snapshot.connectionState ==
                                       ConnectionState.waiting) {
-                                    return Container(); // Muestra un cargador mientras esperas.
+                                    return Container();
                                   } else {
                                     return const RiveAnimation.asset(
                                       "assets/rive/flutterdash.riv",
@@ -155,22 +138,18 @@ class _HomePageState extends State<HomePage> {
                               ),
                               child: Column(
                                 children: [
-                                  AutoSizeText(
+                                  Text(
                                     "Wave technologies trabaja con marcas globales para diseñar, crear y escalar aplicaciones exitosas, y somos el número uno en desarrollo multiplataforma.",
                                     style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 50,
-                                    ),
-                                    minFontSize: 40,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: size.width > 1200 ? 50 : 30),
                                   ),
                                   const SizedBox(height: 30),
-                                  AutoSizeText(
+                                  Text(
                                     "Hacemos más con los recursos disponibles, llegamos a cualquier pantalla desde una única base de código e implementamos las mejores prácticas para el crecimiento a largo plazo",
                                     style: GoogleFonts.poppins(
-                                      fontSize: 24,
-                                      color: Colors.black,
-                                    ),
-                                    minFontSize: 15,
+                                        color: Colors.black,
+                                        fontSize: size.width > 1200 ? 24 : 14),
                                   ),
                                   const SizedBox(height: 30),
                                   const Align(

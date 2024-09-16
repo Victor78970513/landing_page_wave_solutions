@@ -95,7 +95,7 @@ class Header extends ConsumerWidget {
                         index: 3,
                       ),
                       _SpecialHeaderItem(
-                        title: "CONTACTENOS",
+                        title: "CONTACTANOS",
                         path: ContactPage.name,
                         index: 4,
                       )

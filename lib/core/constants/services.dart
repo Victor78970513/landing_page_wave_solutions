@@ -101,7 +101,7 @@ final appServicesSvgs = [
   "assets/icons/performance_service.svg"
 ];
 
-final List<String> techs = [
+final List<String> waveTechologies = [
   "assets/techs/html.svg",
   "assets/techs/css.svg",
   "assets/techs/js.svg",

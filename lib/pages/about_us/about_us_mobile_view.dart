@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ServicesMobileView extends StatelessWidget {
-  const ServicesMobileView({super.key});
+class AboutUsMobileView extends StatelessWidget {
+  const AboutUsMobileView({super.key});
 
   @override
   Widget build(BuildContext context) {

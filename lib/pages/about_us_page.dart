@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:landing_page/pages/home_page.dart';
+import 'package:landing_page/pages/about_us/about_us_mobile_view.dart';
+import 'package:landing_page/pages/about_us/about_us_web_view.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class AboutUsPage extends StatelessWidget {
   static const name = '/About-us';
@@ -8,22 +9,9 @@ class AboutUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              context.go(HomePage.name);
-            },
-            child: Container(
-              height: 100,
-              width: 100,
-              color: Colors.green,
-              child: const Text('ABOUT US PIPIPI'),
-            ),
-          ),
-        ],
-      ),
-    );
+    return ResponsiveBreakpoints.of(context).isMobile ||
+            ResponsiveBreakpoints.of(context).isTablet
+        ? const AboutUsMobileView()
+        : const AboutUsWebView();
   }
 }
